@@ -11,9 +11,22 @@ We assume that this package (root) has following dependency graph.
 - B(1.0.0) -> []
 - B(1.1.0) -> []
 
+The result from running `npm install` from given dependency graph would yeild following structure of `node_modules`
+
+```
+. (root)
+└── node_modules
+    ├── A (1.0.0)
+    │   └── node_modules
+    │       └── B (1.0.0)
+    └── B (1.1.0)
+```
+
+Packages in `examples` directory constructs similar structure with jolie packages, and with this simple example, the following problems raises when execute the program:
+
 Problems:
 
-1. Operation name clashing? 
+1. Operation name clashing?
 
 running examples/name-clashing/main.ol will raised NullPointerException from the interpreter
 
